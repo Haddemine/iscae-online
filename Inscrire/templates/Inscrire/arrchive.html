@@ -1,0 +1,25 @@
+{% extends 'Inscrire/base.html' %}
+{% block content %}
+
+
+<div class="content update">
+    <center><h2>Publication</h2></center>
+    <form  action="{% url 'Inscrire:search' %}" method="get" >
+        <center>  <input type="search" placeholder="Chercher dans l'archive..." name="query"></center>
+        <button type="submit" style="background-color: #319ca3;border-radius: 4px;height: 42px;">Chercher</button>
+      </form>
+
+{% for arrchive in arrchives  %}
+<fieldset>
+    <h1>{{ arrchive.commantire }}</h1> 
+   <a href="{% url 'Inscrire:openfile' %}"> {{ arrchive.fich }}</a>
+   {% if arrchive.img %}
+   <img src="../static/inscription/img/{{ arrchive.img }}" width="200px" height="200px" alt="">
+   {% endif %}
+</fieldset>
+<br>
+{% endfor %}
+</div>
+
+
+{% endblock %}

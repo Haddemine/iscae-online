@@ -1,0 +1,27 @@
+{% extends 'Inscrire/base.html' %}
+
+{% block content %}
+<style>
+    input {
+    padding: 10px;
+    width: 400px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+    box-shadow:1px 1px 1px #319ca3;
+    border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+</style>
+<div class="content update">
+    <br><br><br><br><br>
+    <center><h2>Publier un post</h2></center>
+    <form action="{% url 'Inscrire:poster' %}" method="POST">
+<fieldset>
+    <input type="text" class="form-control" value=""><br>
+    <input type="file" class="form-control"><br>
+    <input type="file" class="form-control">
+</fieldset>
+</form>
+<br><br><br><br><br><br><br><br>
+</div>
+{% endblock %}

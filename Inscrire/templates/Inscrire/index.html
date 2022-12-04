@@ -1,0 +1,64 @@
+{% extends 'Inscrire/base.html' %}
+
+{% block content %}
+
+<style>
+  table{
+ width: 100%;
+ margin: auto;
+ 
+}
+
+table.list{
+ text-align: center;
+ width: 100%;
+}
+
+th{
+ border: 1px solid rgb(204,200,200);
+ text-align: left;
+ padding: 8px 15px;
+ background:#319ca3;
+}
+
+</style>
+<br>
+<div class="content update">
+	<h2>Institut Supérieur de Comptabilité  et    d’Administration des Entreprises </h2>
+
+ <p style="color: black;">  Bienvenue sur notre site Web pour l’inscription à distance à l’Institut Supérieur de Comptabilité et d'Administration des Entreprises ISCAE. <br>
+    Cliquez sur votre niveau, puis remplissez le formulaire requis attentivement avec vos informations correctes.<br><br>
+      <b style="color: #319ca3;">Attention:</b> Ce site examine minutieusement toutes vos informations, ce qui signifie que toute fausse information empêchera l’inscription 
+
+    </p> 
+ </div>
+<!-- <div class="contenant">
+  <img src="../static/inscription/img/im.jpg" height="330px" width="1264px" alt="image">
+</div> -->
+  <div class="content update">
+  <ul>
+    <li><a href="{% url 'Inscrire:licence' %}" style="color: #319ca3; text-decoration: none; font-size: 1.3em;">LICENCE</a><br></li>
+    
+    <li><a href="{% url 'Inscrire:master' %}" style="color: #319ca3; text-decoration: none; font-size: 1.3em;">MASTER</a><br></li>
+  </ul>
+
+    
+
+
+  <p style="font-size: 1.4em;">Nombre d'étudiants inscrits</p>
+<table>
+  <tr><th colspan="6"> <center>Licence</center></th><th colspan="2"><center>Master</center></th></tr>
+  <tr><th>L1 public</th><th>L2 public</th>
+  <th>L3 public</th><th>L1 privée</th><th>L2 privée
+  </th><th>L3 privée
+  </th><th>M1 </th><th>M2 </th>
+</tr>
+<tr><td>{{ nombrelpun1 }} </td><td>
+  {{ nombrelpun2 }} 
+</td><td>{{ nombrelpun3 }} </td><td>{{ nombrelprn1 }} </td>
+<td>{{ nombrelprn2 }} </td><td>{{ nombrelprn3 }} </td>
+<td>{{ nombrelprn2 }} </td><td>{{ nombrelprn3 }} </td>
+</tr>
+</table>
+
+  {% endblock %}

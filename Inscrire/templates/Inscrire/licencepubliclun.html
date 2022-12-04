@@ -1,0 +1,144 @@
+{% extends 'Inscrire/base.html' %}
+
+{% block content %}
+<div class="content update">
+    <h2>FICHE D'INSCRIPTION POUR LA PREMIERE ANNEE L1</h2>
+   <form action="{% url 'Inscrire:detail' %}" method="POST">
+    <input type="text" value="L1" name="niveau" style="display: none;">    
+    {% csrf_token %}
+      
+    <h2 style="color: darkgreen;">INFORMATIONS GENERALES</h2><label></label><br>
+     
+     <br>
+       <label for="{{ form.nom.id_for_label }}" class="control-label"><b>Nom et  prénom</b></label>
+       <label for="{{ form.photo.id_for_label }}"><b>Photo</b></label>
+       {{ form.nom }}
+       <br>
+       {{form.photoEtudiant}}
+       <br>
+      <label for="nni"><b>Numéro National d'Identité (NNI)</b></label>
+      <label for="sexe"><b>Sexe</b></label><br />
+      <br>
+      {{form.nni}}
+      <input type="radio" name="sexe" value="H" checked="checked" style="
+          width:50px;
+          height: 25px;
+          margin-left:5px;
+          box-shadow:1px 1px 1px green;
+          cursor:pointer;
+          ">H
+      <input type="radio" name="sexe" value="F" style="
+          width:50px;
+          height: 25px;
+          margin-left:5px;
+          box-shadow:1px 1px 1px green;
+          cursor:pointer;
+          ">F      
+      <label for="lieuNaissance"><b>Lieu de naissance</b></label>
+      <label for="dateNaissance"><b>Date de naissance</b></label>
+      <br>
+      {{form.lieuNaissance}}
+      <input type="text" name="dateNaissance" placeholder="YYYY-MM-HH" id="datenaiss" >
+      <br>
+      <label for="telephone"><b>Tél de l'étudiant(e)</b></label>
+      <label for="email"><b>E-mail de l'étudiant(e)</b></label>
+      <br>
+      <input type="text" name="telephone" class="form-control">
+      {{ form.email }}
+      <br> 
+      <label for="carteIdentite"><b>Carte d'identité</b></label>
+      <label></label>
+      <br>
+      {{form.carteIdentite}}
+      <label></label>
+      <br> 
+      <label>
+      <h2 style="color: darkgreen;">BACCALAUREAT</h2></label><br><label ></label><br>
+      <label for="numBac"><b>Numéro du Bac</b></label>
+      <label for="bac"><b>Série</b></label><br />
+      <input type="text" name="numBac" class="form-control">
+      <br>
+      <input type="radio" name="bac" value="C" checked="checked" style="
+      width:50px;
+      height: 25px;
+      margin-left:5px;
+      box-shadow:1px 1px 1px green;
+      cursor:pointer;
+      ">C
+      <input type="radio" name="bac" value="D" style="
+      width:50px;
+      height: 25px;
+      margin-left:5px;
+      box-shadow:1px 1px 1px green;
+      cursor:pointer;
+      ">D
+      <label for="releveNote"><b>Réléve de note</b></label><br>
+      <label for="session" name="session"><b>Session</b></label><br />
+       {{form.releveNote}}
+      <br>
+      <input type="radio" name="session" value="Normale" checked="checked" style="
+          width:50px;
+          height: 25px;
+          margin-left:5px;
+          box-shadow:1px 1px 1px green;
+          cursor:pointer;
+          ">Normale
+      <input type="radio" name="session" value="Complémentaire" style="
+          width:50px;
+          height: 25px;
+          margin-left:5px;
+          box-shadow:1px 1px 1px green;
+          cursor:pointer;
+          ">Complémentaire   
+      <label for="moyen"><b>Moyenne générale</b></label>
+      <label for="pays"><b>Pays</b></label>
+            <br>
+      <input type="moyen" name="moyen" class="form-control"> 
+      <input type="radio" name="pays" value="National" checked="checked" style="
+          width:50px;
+          height: 25px;
+          margin-left:5px;
+          box-shadow:1px 1px 1px green;
+          cursor:pointer;
+          ">National
+          <input type="radio" name="pays" value="Etranger" style="
+          width:50px;
+          height: 25px;
+          margin-left:5px;
+          box-shadow:1px 1px 1px green;
+          cursor:pointer;
+          ">Etranger
+          <label for="anObB"><b>Année d'obtention</b></label> <label></label><br>
+          <input type="text" name="annObBac" placeholder="YYYY-MM-HH"><br>
+          <label></label>
+          <label>
+          <h2 style="color: darkgreen;">SPECIALITE</h2></label><br><label ></label><br>
+          <label for="filiere"><b>Spécialité accordée</b></label><br /><label></label><br>
+          <select class="form-control" id="filiere" name="filiere" >
+           {% for filiere in filieres  %}
+            <option value="{{ filiere }}"> {{ filiere.nom }}</option>
+            {% endfor %}
+          </select>
+            <br />
+            
+            <br>
+            <label></label>
+            <br><label></label>
+            <br>
+           <label></label>
+            <label>
+                <h2 style="color: darkgreen;">PAIEMENT</h2></label><br><label ></label><br>
+  
+        Votre inscription montre que vous avez confirmé l'exactitude des information susmentionnées <br>
+        et vous engage à respecter les conditions fixées par l'institut. 
+        <label for="a"></label><label for="a"></label>
+        <br>
+        
+        <input type="submit" value="Payer">
+        <input type="reset" value="Annuler">
+        
+              </div></div>
+    </form>
+    
+    
+    {% endblock %}

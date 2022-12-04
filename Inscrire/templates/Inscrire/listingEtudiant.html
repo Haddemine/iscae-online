@@ -1,0 +1,70 @@
+{% extends 'Inscrire/base.html' %}
+
+{% block content %}
+
+<!-- <div class="content update">
+  <h2>Public</h2>
+  <br>
+  <ul>
+      <li><a href="{% url 'Inscrire:listl1pu' %}" style="color: green; text-decoration: none; font-size: 1.3em;">Niveau L1</a></li>
+      <li><a href="{% url 'Inscrire:listl2pu' %}" style="color: green; text-decoration: none; font-size: 1.3em;">Niveau L2 Ou L3</a></li>
+  </ul>
+  
+  <br>
+  <h2>Privée</h2>
+  <ul>
+      <li><a href="{% url 'Inscrire:listl1pri' %}" style="color: green; text-decoration: none; font-size: 1.3em;">Niveau L1</a></li>
+      <li><a href="{% url 'Inscrire:listl2pri' %}" style="color: green; text-decoration: none; font-size: 1.3em;">Niveau L2 Ou L3</a></li>
+  </ul>
+  
+  <br><br><br><br> -->
+
+<style>
+     table{
+    width: 100%;
+    margin: auto;
+    
+  }
+  
+  table.list{
+    text-align: center;
+    width: 100%;
+  }
+  
+  th{
+    border: 1px solid rgb(204,200,200);
+    text-align: left;
+    padding: 8px 15px;
+    background:#319ca3;
+  }
+  
+</style>
+<div class="content update">
+<h2>Les Etudiants</h2>
+    <form  action="{% url 'Inscrire:search' %}" method="get" >
+      <input type="search" placeholder="Chercher par NNI" name="query">
+      <button type="submit" style="background-color: #319ca3;border-radius: 4px;height: 42px;">Chercher</button>
+    </form>
+
+
+<table>
+    <tr>
+    <th>Numéro d'inscription</th>
+    <th>Nom Complèt</th>
+    <th>NNI</th>
+    <th>DateNaissance</th>
+    <th>Filière</th>
+    </tr>
+    {% for etudiant in etudiants  %}
+    <tr>
+      <td>I{{ etudiant.id }}</td>
+      <td>{{ etudiant.nom }}</td>
+      <td>{{etudiant.nni}}</td>
+      <td>{{etudiant.dateNaissance}}</td>
+      <td>{{ etudiant.filiere }}</td>
+      </tr>
+    {% endfor %}
+</table> 
+<br><br><br><br><br><br><br>
+
+{% endblock %}

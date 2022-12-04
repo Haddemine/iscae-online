@@ -1,0 +1,148 @@
+{% extends 'Inscrire/base.html' %}
+
+{% block content %}
+<div class="content update">
+    <h2>FICHE D'INSCRIPTION POUR L'ETUDIANT (E) PEYANT</h2>
+    <form action="{% url 'Inscrire:detail' %}" method="POST">
+    
+      {% csrf_token %}
+        
+      <h2 style="color: darkgreen;">INFORMATIONS GENERALES</h2><label></label><br>
+       
+       <br>
+         <label for="{{ form.nom.id_for_label }}" class="control-label"><b>Nom et  prénom</b></label>
+         <label for="{{ form.photo.id_for_label }}"><b>Photo</b></label>
+         <!-- <input type="text" name="nom" class="form-control">   -->
+         {{ form.nom }}
+         <BR>
+        
+         <!-- <input type="file" name="photoEtudiant" class="form-control">  -->
+         {{form.photoEtudiant}}
+        <br>
+    
+        <label for="nni"><b>Numéro National d'Identité (NNI)</b></label>
+        <label for="sexe"><b>Sexe</b></label><br />
+        
+        
+        <br>
+        <input type="text" name="nni" class="form-control"> <br>
+            <select class="form-control" id="sexe" name="sexe" >
+              <option value="H"> H</option>
+              <option value="F"> F</option>
+              </select>
+              
+              <label></label><br />
+              <label for="lieuNaissance"><b>Lieu de naissance</b></label>
+        <label for="dateNaissance"><b>Date de naissance</b></label>
+        <br>
+            <!-- <select class="form-control" id="nationalite" name="nationalite" >
+              <option value="H"> Mauritanie</option>
+              <option value="F"> Etranger</option>
+              </select> -->
+              <!-- <label for="a"></label><br /> -->
+              <input type="text" name="lieuNaissance" class="form-control">
+        
+        <input type="text" name="dateNaissance" value="YYYY-MM-DD" id="datenaiss" >
+        <br>
+        <label for="telephone"><b>Tél de l'étudiant(e)</b></label>
+        <label for="email"><b>E-mail de l'étudiant(e)</b></label>
+        
+        <br>
+        <input type="text" name="telephone" class="form-control">
+        <input type="text" name="email" class="form-control">
+        
+        <br>
+        <!-- <label for="email"><b>E-mail de l'étudiant(e)</b></label> --> 
+        <label for="numIns"><b>Numéro d'inscription</b></label>
+        <label></label>
+        <br>
+        <!-- <input type="text" name="email" class="form-control"> --> 
+        <!-- {{form.email}} -->
+        <input type="text" name="numIns" >
+        <label></label>
+        <br> 
+  
+  
+    
+    
+     <label>
+        <h2 style="color: darkgreen;">BACCALAUREAT</h2></label><br><label ></label><br>
+        
+        <label for="numBac"><b>Numéro du Bac</b></label>
+        <label for="bac"><b>Série</b></label><br />
+        <input type="text" name="numBac" >
+        <br>
+        
+            <select class="form-control" name="bac" >
+              <option value="C"> C</option>
+              <option value="D"> D</option>
+              </select>
+              <label for="a"></label><br />
+         
+              <label for="anObL"><b>Année d'obtention</b></label> <br>
+         <label for="session" name="session"><b>Session</b></label><br />
+         <input type="text" name="anObB" >
+        <br>
+               <select  name="session">
+                <option value="Normale"> Normale</option>
+                <option value="Complémentaire"> Complémentaire</option>
+                </select>
+                <br /><label for="a"></label><br />
+        
+        
+        
+        <label for="moyen"><b>Moyenne générale</b></label>
+  
+        <label for="pays"><b>Pays</b></label>
+              <br>
+              <input type="moyen" name="moyen" class="form-control"> 
+              <select name="pays">
+                <option value="National"> National</option>
+                <option value="Etranger"> Etranger</option>
+                </select><label></label>
+              
+              <label>
+                  <h2 style="color: darkgreen;">NIVEAU ET SPECIALITE</h2></label><br><label ></label><br>
+          <label for="filiere"><b>Spécialité accordée</b></label><br />
+          <label><b>Niveau</b></label><br>
+            <select class="form-control" id="filiere" >
+             {% for filiere in filieres  %}
+              <option value="{{ filiere.nom }}"> {{ filiere.nom }}</option>
+              {% endfor %}
+            </select>
+              <br />
+              <pre>                   </pre>
+        
+      <select  name="niveau" >
+        <option value="L2"> L3</option>
+        <option value="L3"> L3</option>
+        </select>
+              
+              <br><label></label>
+    
+           
+              <label></label>
+              <br><label></label>
+              <br>
+             
+
+
+
+              <label>
+                  <h2 style="color: darkgreen;">PAIEMENT</h2></label><br><label ></label><br>
+    
+                  <a href="">Vous pouvez payer les frais d'inscription d'ici</a>
+                  <br> <label></label><br>
+          Votre inscription montre que vous avez confirmé l'exactitude des information sumentionnées <br>
+          et vous engage à respecter les conditions fixées par l'institut. 
+          <label for="a"></label><label for="a"></label>
+          <br>
+          
+          <input type="submit" value="Confirmer">
+          <input type="reset" value="Annuler">
+          
+                </div></div>
+      </form>
+      
+      
+      {% endblock %}

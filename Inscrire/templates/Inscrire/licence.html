@@ -1,0 +1,24 @@
+{% extends 'Inscrire/base.html' %}
+
+{% block content %}
+<div class="content update">
+<h2>Public</h2>
+
+<ul>
+    <li><a href="{% url 'Inscrire:lppub' %}" style="color: #319ca3; text-decoration: none; font-size: 1.3em;">Niveau L1</a></li>
+    <li><a href="{% url 'Inscrire:ldpub' %}" style="color: #319ca3; text-decoration: none; font-size: 1.3em;">Niveau L2</a></li>
+    <li><a href="{% url 'Inscrire:ltpub' %}" style="color: #319ca3; text-decoration: none; font-size: 1.3em;">Niveau L3</a></li>
+  
+</ul>
+
+
+<h2>Privée</h2>
+<ul>
+    <li><a href="{% url 'Inscrire:lpprb' %}" style="color: #319ca3; text-decoration: none; font-size: 1.3em;">Niveau L1</a></li>
+    <li><a href="{% url 'Inscrire:ldprb' %}" style="color: #319ca3; text-decoration: none; font-size: 1.3em;">Niveau L2</a></li>
+    <li><a href="{% url 'Inscrire:ldprb' %}" style="color: #319ca3; text-decoration: none; font-size: 1.3em;">Niveau L3</a></li>
+
+</ul>
+
+<br><br><br><br>
+{% endblock %}

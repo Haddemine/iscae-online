@@ -1,0 +1,127 @@
+
+<div class="content update">
+  <h2>Informations Générales</h2>
+ <form action="{% url 'inscription:detail' %}" method="POST">
+  
+  {% csrf_token %}
+    
+   
+   <br>
+     <label for="{{ form.nom.id_for_label }}" class="control-label"><b>Nom et  prénom</b></label>
+     <label for="{{ form.photo.id_for_label }}"><b>Photo</b></label>
+     <input type="text" name="nom" class="form-control">  
+     <BR>
+    
+     <input type="file" name="photoEtudiant" class="form-control"> 
+    <br>
+
+    <label for="nni"><b>Numéro National d'Identité (NNI)</b></label>
+    <label for="sexe"><b>Sexe</b></label><br />
+    
+    
+    <br>
+    <input type="text" name="nni" class="form-control"> <br>
+        <!-- <select class="form-control" id="sexe" name="sexe" >
+          <option value="H"> H</option>
+          <option value="F"> F</option>
+          </select> -->
+          <input type="radio" name="sexe" value="H" checked="checked" />
+          <label for="oui">H</label>
+          <input type="radio" name="sexe" value="F" />
+          <label for="non">F</label>
+
+
+
+
+
+
+          
+          <label for="a"></label><br />
+    <label for="nationalite"><b>Pays</b></label>
+    <label for="dateNaissance"><b>Né(e) le:</b></label>
+    <br>
+        <!-- <select class="form-control" id="nationalite" name="nationalite" >
+          <option value="H"> Mauritanie</option>
+          <option value="F"> Etranger</option>
+          </select> -->
+          <!-- <label for="a"></label><br /> -->
+          <input type="text" name="nationalite" >
+    
+    <input type="text" name="dateNaissance" value="YYYY-MM-DD" id="datenaiss" >
+    <br>
+    <label for="lieuNaissance"><b>Lieu de naissance</b></label>
+    <label for="telephone"><b>Tél de l'étudiant(e)</b></label>
+    
+    <br>
+    
+    <input type="text" name="lieuNaissance" class="form-control">
+    <input type="text" name="telephone" class="form-control">
+    <br>
+    <label for="email"><b>E-mail de l'étudiant(e)</b></label>
+    <label for="carteIdentite"><b>Carte d'identité</b></label><br>
+    <input type="text" name="email" class="form-control">
+    <input type="file" name="carteIdentite" class="form-control">
+    <br> 
+
+
+ 
+    
+    
+    <label for="numBac"><b>Numéro du Bac</b></label>
+    <label for="bac"><b>Série</b></label><br />
+    <input type="text" name="numBac" class="form-control">
+    <br>
+    
+        <select class="form-control" name="bac" >
+          <option value="C"> C</option>
+          <option value="D"> D</option>
+          </select>
+          <label for="a"></label><br />
+     
+     <label for="releveNote"><b>Réléve de note</b></label><br>
+     <label for="session" name="session"><b>Session</b></label><br />
+     <input type="file" name="releveNote" class="form-control">
+    <br>
+           <select class="form-control" name="session">
+            <option value="Normale"> Normale</option>
+            <option value="Complémentaire"> Complémentaire</option>
+            </select>
+            <br /><label for="a"></label><br />
+    
+    
+    
+    <label for="moyen"><b>Moyenne générale</b></label>
+      <label for="filiere"><b>Spécialité accordée</b></label><br />
+      <input type="moyen" name="moyen" class="form-control">
+        <select class="form-control" id="filiere" >
+         {% for filiere in filieres  %}
+          <option value="filiere"> {{ filiere.nom }}</option>
+          {% endfor %}
+        </select>
+          <br />
+          <br>
+
+          Votre inscription montre que vous avez confirmé l'exactitude des information sumentionnées <br>
+          et vous engage à respecter les conditions fixées par l'institut.
+       
+
+          <label for="a"></label><label for="a"></label>
+        <br>
+    <input type="submit" value="Confirmer">
+    <input type="reset" value="Annuler">
+    <!-- <a href="" ><input style="
+      display: block;
+      background-color: red;
+      border: 0;
+      font-weight: bold;
+      font-size: 14px;
+      color: white;
+      cursor: pointer;
+      width: 200px;
+    margin-top: 15px;
+  " value="Effacer"></a> -->
+    <!-- <button class="btn btn-danger" >Effacer</button> -->
+          </div></div>
+</form>
+
+

@@ -1,0 +1,76 @@
+{% extends 'Inscrire/base.html' %}
+
+{% block content %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    
+
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  google.charts.setOnLoadCallback(drawChartT);
+ 
+  function drawChart() {
+
+    
+
+    var options = {
+      title: 'Nos étudiants',
+      is3D: true,
+    };
+   
+    
+      var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['L1 public',     {{nombrelpun1}} ],
+      ['L2 public',      {{ nombrelpun2 }}],
+      ['L3 public',      {{ nombrelpun3 }}],
+      ['L1 privé',      {{ nombrelprn1 }}],
+      ['L2 privé',      {{ nombrelprn2 }}],
+      ['L3 privé',      {{ nombrelprn3 }}],
+      ['M1 public',      {{ok}}] ,
+      ['M2 public',      {{ nombremasterpub2 }}] ,
+      ['M1 privé',      {{ nombremasterpri1 }}] ,
+      ['M2 privé',      {{ nombremasterpri2 }}]
+    ]);
+      
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+  
+  }
+
+  function drawChartT() {
+      var dataT = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Licence public", 3, "blue"],
+        ["Licence privé", 3, "blue"],
+        ["Master public", 2, "blue"],
+        ["Master privé", 2, "blue"]
+      ]);
+
+      var view = new google.visualization.DataView(dataT);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var optionsT = {
+        title: "",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chartT = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chartT.draw(view, optionsT);
+  }
+</script>
+<table style="margin: 0px; padding: 0px;">
+  <tr><td><div id="piechart_3d" style="width: 750px; height: 500px;"></td><td><div id="barchart_values" style="width: 550px; height: 500px;"></td></tr></table>
+
+
+
+
+{% endblock %}
